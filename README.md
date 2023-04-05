@@ -12,20 +12,15 @@ Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
 Once Helm is set up properly, add the repo as follows:
 
 ```console
-helm repo add banpara-dotnet https://charts.jenkins.io
+helm repo add banpara-dotnet https://thiagofdso.github.io/banpara-charts/
 ```
 
 You can then run `helm search repo Banpara .Net` to see the charts.
 
 <!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
-Chart documentation is available in [jenkins directory](https://github.com/jenkinsci/helm-charts/blob/main/charts/jenkins/README.md).
-
-## Contributing
-
-<!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
-We'd love to have you contribute! Please refer to our [contribution guidelines](https://github.com/jenkinsci/helm-charts/blob/main/CONTRIBUTING.md) for details.
+Chart documentation is available in [dotnet directory](https://github.com/thiagofdso/banpara-charts/blob/main/charts/banpara-dotnet/README.md).
 
 ## License
 
 <!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
-[Apache 2.0 License](https://github.com/jenkinsci/helm-charts/blob/main/LICENSE).
+[Apache 2.0 License](https://github.com/thiagofdso/banpara-charts/blob/main/LICENSE).
