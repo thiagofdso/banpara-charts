@@ -16,10 +16,10 @@ deploy:
   ## Freeform resources. More information: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
   resources:
     limits:
-      cpu: 10m
+      cpu: 200m
       memory: 512Mi
     requests:
-      cpu: 10m
+      cpu: 200m
       memory: 512Mi
 
   ## Type of service to create. More information: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
@@ -116,7 +116,7 @@ deploy:
           "AllowedHosts": "*",
           "Logging": {
             "LogLevel": {
-              "Default": "Info",
+              "Default": "Debug",
               "Microsoft.AspNetCore": "Warning"
             }
           }
