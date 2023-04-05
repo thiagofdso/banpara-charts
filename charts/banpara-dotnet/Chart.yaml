@@ -1,0 +1,7 @@
+apiVersion: v2
+name: banpara-dotnet
+version: 0.0.1
+icon: https://static.redhat.com/libs/redhat/brand-assets/latest/corp/logo.svg
+keywords:
+  - runtimes
+  - dotnet

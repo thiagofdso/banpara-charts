@@ -1,0 +1,162 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "properties": {
+        "image": {
+            "type": "object",
+            "description": "Define a imagem que vai ser implantada",
+            "properties": {
+                "name": {
+                    "type": ["string", "null"],
+                    "description": "Nome da imagem que deseja implantar (não colocar caminho do nexus)"
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "Tag que deseja implantar"
+                }
+            }
+        },
+        "deploy": {
+            "type": "object",
+            "description": "Valores relacionados a implantação da sua aplicação",
+            "properties": {
+                "kind": {
+                    "type": "string",
+                    "description": "Escolher deployment ou deploymentconfig"
+                },"replicas": {
+                    "type": "integer",
+                    "description": "Numéro de pods para implantar"
+                },
+                "resources": {
+                    "type": ["object", "null"],
+                    "description": "Formulário livre para recursos. Mais informações: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"
+                },
+                "serviceType": {
+                    "type": "string",
+                    "description": "O tipo de serviço pra criar. Mais informações: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types"
+                },
+                "ports": {
+                    "type": "array",
+                    "description": "Formulário livre para portas do serviço. Mais informações: https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service"
+                },
+                "route": {
+                    "type": "object",
+                    "description": "Valores para criação de rota no Openshift",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean",
+                            "description": "Define se a rota deve ser criada"
+                        },
+                        "targetPort": {
+                            "type": "string",
+                            "description": "A porta dos pods que essa rota aponta"
+                        },
+                        "tls": {
+                            "type": "object",
+                            "description": "Valores para configurar TLS na rota do Openshift. Mais informações: https://docs.openshift.com/container-platform/4.6/networking/routes/secured-routes.html",
+                            "properties": {
+                                "enabled": {
+                                    "type": "boolean",
+                                    "description": "Determina se o TLS deve ser habilitado"
+                                },
+                                "termination": {
+                                    "type": "string",
+                                    "description": "Indica o tipo de terimnação(edge, passthrough ou reencrypt)"
+                                },
+                                "insecureEdgeTerminationPolicy": {
+                                    "type": "string",
+                                    "description": "Indica o comportamento para conexões inseguras"
+                                },
+                                "key": {
+                                    "type": ["string", "null"],
+                                    "description": "Conteúdos da chave"
+                                },
+                                "caCertificate": {
+                                    "type": ["string", "null"],
+                                    "description": "Conteúdo da autoridade certificadora"
+                                },
+                                "certificate": {
+                                    "type": ["string", "null"],
+                                    "description": "Conteúdo do certificado"
+                                },
+                                "destinationCACertificate": {
+                                    "type": ["string", "null"],
+                                    "description": "Conteúdo do Certificado CA do destino final"
+                                }
+                            }
+                        }
+                    }
+                },
+				"startupProbe": {
+                    "type": ["object", "null"],
+                    "description": "Formulário livre para o startupProbe. Mais informações: https://docs.openshift.com/container-platform/4.6/applications/application-health.html#application-health-about_application-health"
+                },
+                "livenessProbe": {
+                    "type": ["object", "null"],
+                    "description": "Formulário livre para o  livenessProbe. Mais informações: https://docs.openshift.com/container-platform/4.6/applications/application-health.html#application-health-about_application-health"
+                },
+                "readinessProbe": {
+                    "type": ["object", "null"],
+                    "description": "Formulário livre para o  readinessProbe. Mais informações: https://docs.openshift.com/container-platform/4.6/applications/application-health.html#application-health-about_application-health"
+                },
+                "env": {
+                    "type": ["array", "null"],
+                    "description": "Formulário livre para o campo env. Mais informações: https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/"
+                },
+                "envFrom": {
+                    "type": ["array", "null"],
+                    "description": "Formulário livre para o campo envFrom. Mais informações: https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables"
+                },
+                "applicationProperties": {
+                    "type": "object",
+                    "description": "Valores para propriedades da aplicação, appsettings.json",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean",
+                            "description": "Define se o arquivo de configuração deve ser criado em um ConfigMap ou Secret"
+                        },"type": {
+                            "type": "string",
+                            "description": "Se o arquivo vai ser criado como Secret ou ConfigMap"
+                        },
+                        "mountPath": {
+                            "type": "string",
+                            "description": "A localização para montar o arquivo"
+                        },"subPath": {
+                            "type": "string",
+                            "description": "A localização para montar o arquivo"
+                        },
+                        "properties": {
+                            "type": ["string", "null"],
+                            "description": "conteúdo do appsettings.json"
+                        }
+                    }
+                },
+                "volumeMounts": {
+                    "type": ["array", "null"],
+                    "description": "Formulário livre para o campo volumeMounts. Mais informações: https://kubernetes.io/docs/concepts/storage/volumes/"
+                },
+                "volumes": {
+                    "type": ["array", "null"],
+                    "description": "Formulário livre para o campo volumes. Mais informações: https://kubernetes.io/docs/concepts/storage/volumes/"
+                },
+                "initContainers": {
+                    "type": ["array", "null"],
+                    "description": "Formulário livre para o campo initContainers. Mais informações: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/"
+                },
+                "extraContainers": {
+                    "type": ["array", "null"],
+                    "description": "Adiciona containers extras ao pod, fornecer uma lista de template de pod. Mais informações: https://kubernetes.io/docs/concepts/workloads/pods/#pod-templates"
+                }
+            }
+        },
+        "global": {
+            "type": "object",
+            "description": "Valores que devem ser globais no Helm",
+            "properties": {
+                "nameOverride": {
+                    "type": ["string", "null"],
+                    "description": "Sobrescreve o nome da release. Impacta no nome da imagem e nos nomes dos recursos criados no Openshift"
+                }
+            }
+        }
+    }
+ }

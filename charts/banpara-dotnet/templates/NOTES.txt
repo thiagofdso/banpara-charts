@@ -1,0 +1,7 @@
+{{- if .Release.IsInstall }}
+Your  app is deployed! To view the logs run:
+
+oc logs deploy/{{ include "dotnet.name" . }} --follow
+oc logs dc/{{ include "dotnet.name" . }} --follow
+
+{{- end }}
