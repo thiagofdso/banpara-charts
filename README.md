@@ -15,7 +15,7 @@ Once Helm is set up properly, add the repo as follows:
 helm repo add banpara-dotnet https://thiagofdso.github.io/banpara-charts/
 ```
 
-You can then run `helm search repo Banpara .Net` to see the charts.
+You can then run `helm search repo banpara-dotnet` to see the charts.
 
 <!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
 Chart documentation is available in [dotnet directory](https://github.com/thiagofdso/banpara-charts/blob/main/charts/banpara-dotnet/README.md).
