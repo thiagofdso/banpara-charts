@@ -10,6 +10,6 @@ entries:
     - dotnet
     name: banpara-dotnet
     urls:
-    - https://github.com/thiagofdso/banpara-charts/banpara-dotnet-0.0.1.tgz
+    - https://github.com/thiagofdso/banpara-charts/blob/main/banpara-dotnet-0.0.1.tgz?raw=true
     version: 0.0.1
 generated: "2023-04-05T13:50:22.9622709-03:00"
