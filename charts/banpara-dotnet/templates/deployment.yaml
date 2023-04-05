@@ -32,7 +32,7 @@ spec:
 {{- end }}
       containers:
         - name: web
-          image:  'nexus.banpara.com:9001/{{required "image.name is required" .Values.image.name }}:{required "image.tag is required" .Values.image.tag}'
+          image:  'nexus.banpara.com:9001/{{.Values.image.name }}:{.Values.image.tag}'
           ports:
 {{- range .Values.deploy.ports }}
             - name: {{ .name }}
